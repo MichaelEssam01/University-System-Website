@@ -1,0 +1,47 @@
+﻿@model Course
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div style="text-align:center; margin-top: 100px;">
+    <h4 style="margin-bottom:-15px;">Course Details</h4>
+</div>
+<div>
+    <a asp-action="Index"><i class="fa-solid fa-arrow-left fa-xl"></i></a>
+</div>
+<hr />
+<div>
+<div>
+
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CourseName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CourseCode)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CourseCode)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Department)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Department.DepartmentName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Credits)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Credits)
+        </dd>
+    </dl>
+</div>
+
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.CourseID" class="btn btn-primary">Edit</a>
+    </div>

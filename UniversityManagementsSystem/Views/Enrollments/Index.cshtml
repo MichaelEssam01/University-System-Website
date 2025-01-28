@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Enrollment>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<p style="margin-top: 100px;">
+    <a asp-action="Create"><i class="fa-solid fa-square-plus fa-xl"></i></a>
+</p>
+<div class="table-responsive">
+    <table class="table table-sm">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnrollmentDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @{
+                    var fullName = item.User.FirstName + " " + item.User.LastName;
+                }
+                @* @Html.DisplayFor(modelItem => item.User.Email) *@
+                        @Html.Raw(fullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentDate)
+            </td>
+            <td>
+                        <a asp-action="Edit" asp-route-id="@item.EnrollmentID"><i class="fa-solid fa-pen fa-lg"></i></a> |
+                        <a asp-action="Details" asp-route-id="@item.EnrollmentID"><i class="fa-solid fa-circle-info fa-lg"></i></a> |
+                        <a asp-action="Delete" asp-route-id="@item.EnrollmentID"><i class="fa-solid fa-trash fa-lg"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

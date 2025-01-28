@@ -1,0 +1,94 @@
+﻿@model IEnumerable<User>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<p style="margin-top: 100px;">
+    <a asp-action="Create"><i class="fa-solid fa-square-plus fa-xl"></i></a>
+</p>
+<div class="table-responsive">
+    <table class="table table-sm">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UniversityId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UniversityId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+            </td>
+            <td>
+                        <a asp-action="Edit" asp-route-id="@item.UserID"><i class="fa-solid fa-pen fa-lg"></i></a> |
+                        <a asp-action="Details" asp-route-id="@item.UserID"><i class="fa-solid fa-circle-info fa-lg"></i></a> |
+                        <a asp-action="Delete" asp-route-id="@item.UserID"><i class="fa-solid fa-trash fa-lg"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+@* @section Scripts {
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Your jQuery plugin or library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/some-plugin/1.0.0/some-plugin.min.js"></script>
+} *@
